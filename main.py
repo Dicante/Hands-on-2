@@ -9,15 +9,13 @@ mean_advertising = np.mean(advertising)
 mean_sales = np.mean(sales)
 
 # Calculate the parameters beta1 and beta0
-numerator = np.sum((advertising - mean_advertising) * (sales - mean_sales))
-denominator = np.sum((advertising - mean_advertising) ** 2)
-beta1 = numerator / denominator
+beta1 = np.sum((advertising - mean_advertising) * (sales - mean_sales)) / np.sum((advertising - mean_advertising) ** 2)
 beta0 = mean_sales - beta1 * mean_advertising
 
 print(f"Regression Equation: Sales = {beta0:.2f} + {beta1:.2f} * Advertising")
 
 # Five new advertising
-new_advertising_values = np.array([20, 35, 45, 55, 60])
+new_advertising_values = np.array([20, 35, 46, 52, 60, 67])
 
 # Predict sales for the new advertising values
 predicted_sales = beta0 + beta1 * new_advertising_values
